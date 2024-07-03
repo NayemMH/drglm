@@ -1,0 +1,25 @@
+Package: drglm
+type: Package
+Title: Fitting Linear and Genaralized Linear Model in "Divide and Recombine" approach.
+Version: 1.0.1
+Authors@R: 
+    person("MH", "Nayem",email="mhnayem.cu.stat@gmail.com", role = c("aut", "cre"))
+Maintainer: MH Nayem <mhnayem.cu.stat@outlook.com>
+Depends: stats, speedglm, nnet
+Description: Fitting Linear and Generalized Linear Models to Large Data sets in "Divide and Recombine" Approach. 
+License: GPL (>= 3)
+LazyLoad: yes
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.0
+Imports: 
+    nnet,
+    speedglm,
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://nayemmh.github.io/drglm/
