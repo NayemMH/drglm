@@ -58,11 +58,6 @@
 #'pmodel <- drglm::big.drglm(da,formula = Var_5 ~ Var_1+ Var_2+ factor(Var_3)+ factor(Var_4)+ Var_6, 10, family="poisson")
 #'# View the results table
 #'print(pmodel)
-#'
-#' @param data.generator
-#' @param formula
-#' @param chunks
-#' @param family
 
 big.drglm <- function(data.generator, formula, chunks, family)
 {
