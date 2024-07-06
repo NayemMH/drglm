@@ -44,9 +44,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/big_drglm.html">Fitting GLMs to Out of the Memory Data Sets </a>
-    <a class="dropdown-item" href="../articles/drglm_multinom.html">Fitting Multinomial Logistic Regression Models to Big Dataset</a>
+    <a class="dropdown-item" href="../articles/big_drglm.html"> Fitting Linear and Generalized Linear Models to out of the memory data sets in Divide and Recombine approach </a>
+    <a class="dropdown-item" href="../articles/drglm_multinom.html">Fitting Multinomial Logistic Regression model in Divide and Recombine approach to Large Data Sets</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -107,7 +110,8 @@ assuming Var_1 as response variable and all other variables as
 independent ones.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nmodel</span><span class="op">=</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/drglm.html">drglm</a></span><span class="op">(</span><span class="va">Var_1</span> <span class="op">~</span> <span class="va">Var_2</span><span class="op">+</span> <span class="va">Var_3</span><span class="op">+</span> <span class="va">Var_4</span><span class="op">+</span> <span class="va">Var_5</span><span class="op">+</span> <span class="va">Var_6</span>,  </span>
-<span>                     data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"gaussian"</span>, fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
+<span>                     data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"gaussian"</span>, </span>
+<span>                     fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#Output</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nmodel</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                  Estimate standard.error      Z_value  Pr...z..</span></span>
@@ -221,7 +225,8 @@ Var_5 as response variable and all other variables as independent
 ones.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pmodel</span><span class="op">=</span><span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/drglm.html">drglm</a></span><span class="op">(</span><span class="va">Var_5</span><span class="op">~</span> <span class="va">Var_1</span><span class="op">+</span> <span class="va">Var_2</span><span class="op">+</span> <span class="va">Var_3</span><span class="op">+</span> <span class="va">Var_4</span><span class="op">+</span> <span class="va">Var_6</span>, </span>
-<span>                    data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"binomial"</span>, fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
+<span>                    data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"binomial"</span>, </span>
+<span>                    fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#Output</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">pmodel</span><span class="op">)</span></span></code></pre></div>

@@ -1,4 +1,4 @@
-#' Fitting Linear and Generalized Linear Models to out of the memory data sets in "Divide and Recombine" approach.
+#' Fitting Linear and Generalized Linear Models to out of the memory data sets in "Divide and Recombine" approach
 #' @description
 #' Function \code{big.drglm} aimed to fit GLMs to datasets larger in size that can not be  stored in memory. It uses popular divide and recombine technique to handle large data sets efficiently.
 #' @param data.generator Using the function \code{\link{make.data}} to initialize the data reading function with the data set path and chunk size, then the data.generate is used directly as data source for the \code{\link{big.drglm}} function.
@@ -19,45 +19,58 @@
 #' @seealso \code{\link{drglm}}, \code{\link{drglm.multinom}}
 #' @import nnet
 #' @import stats
-#' @importFrom stats glm
-#' @import speedglm
+#' @import speedglm speedglm
+#' @importFrom stats gaussian model.matrix model.response model.frame qnorm pnorm binomial coef qt poisson
+#' @importFrom nnet multinom
+#' @importFrom speedglm speedglm
+#' @export big.drglm
 #' @examples
-#' #create a toy dataset
+#' # Create a toy dataset
 #' set.seed(123)
-#'#Number of rows to be generated
-#'n <- 1000000
-#'#creating dataset
-#'dataset <- data.frame(
-#'Var_1 = round(rnorm(n, mean = 50, sd = 10)),
-#'Var_2 = round(rnorm(n, mean = 7.5, sd = 2.1)),
-#'Var_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)),
-#'Var_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)),
-#'Var_5 = as.factor(sample(0:15, n, replace = TRUE)),
-#'Var_6 = round(rnorm(n, mean = 60, sd = 5))
-#')
-
-#'# Save the dataset to the temporary file
-#'write.csv(dataset, file="test_data.csv")
-#'# Path to your data set
-#'dataset_path <- "C:/Users/mhnay/OneDrive/Documents/test_data.csv"
-
-
+#' # Number of rows to be generated
+#' n <- 1000000
+#'
+#' # Creating dataset
+#' dataset <- data.frame(
+#'   Var_1 = round(rnorm(n, mean = 50, sd = 10)),
+#'   Var_2 = round(rnorm(n, mean = 7.5, sd = 2.1)),
+#'   Var_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)),
+#'   Var_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)),
+#'   Var_5 = as.factor(sample(0:15, n, replace = TRUE)),
+#'   Var_6 = round(rnorm(n, mean = 60, sd = 5))
+#' )
+#'
+#' # Save the dataset to a temporary file
+#' temp_file <- tempfile(fileext = ".csv")
+#' write.csv(dataset, file = temp_file, row.names = FALSE)
+#'
+#' # Path to the temporary file
+#' dataset_path <- temp_file
+#' dataset_path  # Display the path to the temporary file
+#'
 #'# Initialize the data reading function with the data set path and chunk size
 #'da <- drglm::make.data(dataset_path, chunksize = 100000)
 #'# Fitting MLR Models
-#'nmodel <- drglm::big.drglm(da,formula = Var_1 ~ Var_2+ factor(Var_3)+factor(Var_4)+ factor(Var_5)+ Var_6, 10, family="gaussian")
+#'nmodel <- drglm::big.drglm(da,
+#'formula = Var_1 ~ Var_2+ factor(Var_3)+factor(Var_4)+ factor(Var_5)+ Var_6,
+#'10, family="gaussian")
 
 #'# View the results table
 #'print(nmodel)
 #'# Fitting logistic Regression Model
-#'bmodel <- drglm::big.drglm(da,formula = factor(Var_3) ~ Var_1+ Var_2+ factor(Var_4)+ factor(Var_5)+ Var_6, 10, family="binomial")
+#'bmodel <- drglm::big.drglm(da,
+#'formula = factor(Var_3) ~ Var_1+ Var_2+ factor(Var_4)+ factor(Var_5)+ Var_6,
+#'10, family="binomial")
 #'# View the results table
 #'print(bmodel)
 
 #'# Fitting Poisson Regression Model
-#'pmodel <- drglm::big.drglm(da,formula = Var_5 ~ Var_1+ Var_2+ factor(Var_3)+ factor(Var_4)+ Var_6, 10, family="poisson")
+#'pmodel <- drglm::big.drglm(da,
+#'formula = Var_5 ~ Var_1+ Var_2+ factor(Var_3)+ factor(Var_4)+ Var_6,
+#'10, family="poisson")
 #'# View the results table
 #'print(pmodel)
+
 
 big.drglm <- function(data.generator, formula, chunks, family)
 {
@@ -230,3 +243,30 @@ big.drglm <- function(data.generator, formula, chunks, family)
   }
 }
 
+
+
+make.data <- function(filename, chunksize, ...)
+{
+  conn <- NULL
+  col_names <- NULL
+
+  function(reset = FALSE) {
+    if (reset) {
+      if (!is.null(conn)) close(conn)
+      conn <<- file(filename, open = "r")
+      chunk <- read.csv(conn, nrows = chunksize, header = TRUE, ...)
+      col_names <<- names(chunk)
+      return(chunk)
+    } else {
+      rval <- read.csv(conn, nrows = chunksize, header = FALSE, ...)
+      if (nrow(rval) == 0) {
+        close(conn)
+        conn <<- NULL
+        rval <<- NULL
+      } else {
+        names(rval) <- col_names
+      }
+      return(rval)
+    }
+  }
+}

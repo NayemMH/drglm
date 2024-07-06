@@ -2,7 +2,7 @@
 % Please edit documentation in R/drglm_multinom.R
 \name{drglm.multinom}
 \alias{drglm.multinom}
-\title{Fitting Multinomial Logistic Regression model in "Divide and Recombine" approach.}
+\title{Fitting Multinomial Logistic Regression model in "Divide and Recombine" approach to Large Data Sets}
 \usage{
 drglm.multinom(formula, data, k)
 }
@@ -24,9 +24,15 @@ set.seed(123)
 #Number of rows to be generated
 n <- 1000000
 #creating dataset
-dataset <- data.frame( pred_1 = round(rnorm(n, mean = 50, sd = 10)), pred_2 = round(rnorm(n, mean = 7.5, sd = 2.1)), pred_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)), pred_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)), pred_5 = as.factor(sample(0:15, n, replace = TRUE)), pred_6 = round(rnorm(n, mean = 60, sd = 5)))
+dataset <- data.frame( pred_1 = round(rnorm(n, mean = 50, sd = 10)),
+pred_2 = round(rnorm(n, mean = 7.5, sd = 2.1)),
+pred_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)),
+pred_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)),
+ pred_5 = as.factor(sample(0:15, n, replace = TRUE)),
+ pred_6 = round(rnorm(n, mean = 60, sd = 5)))
 #fitting multinomial logistic regression model
-mmodel=drglm::drglm.multinom(pred_4~ pred_1+ pred_2+ pred_3+ pred_5+ pred_6, data=dataset, k=10)
+mmodel=drglm::drglm.multinom(
+pred_4~ pred_1+ pred_2+ pred_3+ pred_5+ pred_6, data=dataset, k=10)
 #Output
 mmodel
 }

@@ -1,5 +1,5 @@
 ---
-title: "Fitting Multinomial Logistic Regression Models to Big Dataset"
+title: "Fitting Multinomial Logistic Regression model in Divide and Recombine approach to Large Data Sets"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{drglm_multinom}
@@ -36,7 +36,8 @@ Now, we shall fit multinomial logistic regression model to the data sets assumin
 
 ```{r}
 
-mmodel=drglm::drglm.multinom(Var_4~ Var_1+ Var_2+ Var_3+ Var_5+ Var_6, data=dataset, k=10)
+mmodel=drglm::drglm.multinom(Var_4~ Var_1+ Var_2+ Var_3+ Var_5+ Var_6, 
+                             data=dataset, k=10)
 #Output
 print(mmodel)
 ```

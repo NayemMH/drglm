@@ -1,4 +1,4 @@
-#'  Fitting Multinomial Logistic Regression model in "Divide and Recombine" approach.
+#'  Fitting Multinomial Logistic Regression model in "Divide and Recombine" approach to Large Data Sets
 #' @description
 #' Function \code{drglm.multinom} fits multinomial logistic regressiosn model to big data sets in divide and recombine approach.
 #' @param formula An entity belonging to the "formula" class (or one that can be transformed into that class) represents a symbolic representation of the model that needs to be adjusted. Specifics about how the model is defined can be found in the 'Details' section.
@@ -12,27 +12,32 @@
 #' @author MH Nayem
 #' @seealso \code{\link{big.drglm}}, \code{\link{drglm}}
 #' @import nnet
+#' @importFrom nnet multinom
 #' @import stats
-#' @importFrom stats glm
-#' @export
+#' @importFrom stats glm coef qnorm pnorm
+#' @export drglm.multinom
 #' @examples
 #' set.seed(123)
 #' #Number of rows to be generated
 #' n <- 1000000
 #' #creating dataset
-#' dataset <- data.frame( pred_1 = round(rnorm(n, mean = 50, sd = 10)), pred_2 = round(rnorm(n, mean = 7.5, sd = 2.1)), pred_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)), pred_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)), pred_5 = as.factor(sample(0:15, n, replace = TRUE)), pred_6 = round(rnorm(n, mean = 60, sd = 5)))
+#' dataset <- data.frame( pred_1 = round(rnorm(n, mean = 50, sd = 10)),
+#' pred_2 = round(rnorm(n, mean = 7.5, sd = 2.1)),
+#' pred_3 = as.factor(sample(c("0", "1"), n, replace = TRUE)),
+#' pred_4 = as.factor(sample(c("0", "1", "2"), n, replace = TRUE)),
+#'  pred_5 = as.factor(sample(0:15, n, replace = TRUE)),
+#'  pred_6 = round(rnorm(n, mean = 60, sd = 5)))
 
 #' #fitting multinomial logistic regression model
-#' mmodel=drglm::drglm.multinom(pred_4~ pred_1+ pred_2+ pred_3+ pred_5+ pred_6, data=dataset, k=10)
+#' mmodel=drglm::drglm.multinom(
+#' pred_4~ pred_1+ pred_2+ pred_3+ pred_5+ pred_6, data=dataset, k=10)
 #' #Output
 #' mmodel
 
 drglm.multinom<-function(formula,data,k)
 {
-  library(nnet)
   n = nrow(data)
   rows_per_chunk = ceiling(n / k)
-
   split_data = lapply(1:k, function(i) {
     start_row = (i-1) * rows_per_chunk + 1
     end_row = min(i * rows_per_chunk, n)
@@ -83,7 +88,7 @@ drglm.multinom<-function(formula,data,k)
 
   alpha <- 0.05
 
-  z<-qnorm(1-alpha/2)
+  z<-stats::qnorm(1-alpha/2)
 
 
   #lower and upper bounds using gaussian distribution
@@ -92,7 +97,7 @@ drglm.multinom<-function(formula,data,k)
 
   Z=B/se_com
 
-  p_value=2*(1- pnorm(abs(Z)))
+  p_value=2*(1- stats::pnorm(abs(Z)))
 
   table <- data.frame("Estimate"=t(B),"standard.error"=t(se_com) , "Z_value"= t(Z), "Pr(>|z|)"=t(p_value),"Lower.CI"=t(l_normal),"Upper.CI" = t(u_normal ))
 

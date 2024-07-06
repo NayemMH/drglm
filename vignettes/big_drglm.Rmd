@@ -1,12 +1,12 @@
 ---
-title: "Fitting GLMs to Out of the Memory Data Sets "
+title: " Fitting Linear and Generalized Linear Models to out of the memory data sets in Divide and Recombine approach "
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Fitting GLMs to Out of the Memory Data Sets }
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-To fit Generalized Linear Models (GLMs) on large datasets that exceed memory limits, you can use the 'big.drglm' function. The 'biglm' package has been used for such applications, but it doesn't support factors. The 'speedglm' package does support factors, but its application on large CSV files for fitting GLMs hasn't been demonstrated. We'll show how to fit large datasets in chunks for model fitting.
+To fit Generalized Linear Models (GLMs) on large data sets that exceed memory limits, you can use the 'big.drglm' function. The 'biglm' package has been used for such applications, but it doesn't support factors. The 'speedglm' package does support factors, but its application on large CSV files for fitting GLMs hasn't been demonstrated. We'll show how to fit large datasets in chunks for model fitting.
 
 Now , lets create a toy data set 
 
@@ -42,7 +42,9 @@ da <- drglm::make.data(dataset_path, chunksize = 100000)
 
 ```{r}
 # Fitting MLR Model
-nmodel <- drglm::big.drglm(da,formula = Var_1 ~ Var_2+ factor(Var_3)+factor(Var_4)+ factor(Var_5)+ Var_6, 10, family="gaussian")
+nmodel <- 
+  drglm::big.drglm(da, formula = Var_1 ~ Var_2+ factor(Var_3)+
+                     factor(Var_4)+ factor(Var_5)+ Var_6, 10, family="gaussian")
 
 # View the results table
 print(nmodel)
@@ -52,14 +54,18 @@ In this similar manner , we can fit other family models using the above dataset.
 # Fitting logistic Regression Model
 ```{r}
 # Fitting Logistic Model
-bmodel <- drglm::big.drglm(da,formula = factor(Var_3) ~ Var_1+ Var_2+ factor(Var_4)+ factor(Var_5)+ Var_6, 10, family="binomial")
+bmodel <- drglm::big.drglm(da,formula = factor(Var_3) ~ Var_1+ Var_2+
+                             factor(Var_4)+ factor(Var_5)+ Var_6, 
+                           10, family="binomial")
 # View the results table
 print(bmodel)
 ```
 # Fitting Poisson Regression Model
 ```{r}
 # Fitting Poisson Regression Model
-pmodel <- drglm::big.drglm(da,formula = Var_5 ~ Var_1+ Var_2+ factor(Var_3)+ factor(Var_4)+ Var_6, 10, family="poisson")
+pmodel <- drglm::big.drglm(da,
+                           formula = Var_5 ~ Var_1+ Var_2+ factor(Var_3)+ 
+                             factor(Var_4)+ Var_6, 10, family="poisson")
 # View the results table
 print(pmodel)
 ```

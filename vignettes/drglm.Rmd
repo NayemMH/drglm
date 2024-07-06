@@ -32,10 +32,11 @@ This data set contains six variables of which four of them are continuous genera
 
 Now, we shall fit multiple linear regression model to the data sets assuming Var_1 as response variable and all other variables as independent ones. 
 
-```{r setup}
+```{r}
 
 nmodel= drglm::drglm(Var_1 ~ Var_2+ Var_3+ Var_4+ Var_5+ Var_6,  
-                     data=dataset, family="gaussian", fitfunction="speedglm", k=10)
+                     data=dataset, family="gaussian", 
+                     fitfunction="speedglm", k=10)
 #Output
 print(nmodel)
 ```
@@ -61,7 +62,8 @@ Now, we shall fit poisson regression model to the data sets assuming Var_5 as re
 ```{r}
 
 pmodel=drglm::drglm(Var_5~ Var_1+ Var_2+ Var_3+ Var_4+ Var_6, 
-                    data=dataset, family="binomial", fitfunction="speedglm", k=10)
+                    data=dataset, family="binomial", 
+                    fitfunction="speedglm", k=10)
 
 #Output
 print(pmodel)
