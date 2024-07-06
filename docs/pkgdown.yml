@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+pandoc: 3.1.11
+pkgdown: 2.0.9
+pkgdown_sha: ~
+articles:
+  big_drglm: big_drglm.html
+  drglm: drglm.html
+  drglm_multinom: drglm_multinom.html
+last_built: 2024-07-06T19:07Z
+urls:
+  reference: https://nayemmh.github.io/drglm/reference
+  article: https://nayemmh.github.io/drglm/articles
+
+=======
+pandoc: 3.1.11
+pkgdown: 2.0.9
+pkgdown_sha: ~
+articles:
+  big_drglm: big_drglm.html
+  drglm: drglm.html
+  drglm_multinom: drglm_multinom.html
+last_built: 2024-07-06T19:07Z
+urls:
+  reference: https://nayemmh.github.io/drglm/reference
+  article: https://nayemmh.github.io/drglm/articles
+
+>>>>>>> 74f32d28cd774f737268128e8932f9d16b3fc320
