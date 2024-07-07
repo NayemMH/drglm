@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet" />
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script>
-=======
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet" />
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script>
->>>>>>> 74f32d28cd774f737268128e8932f9d16b3fc320

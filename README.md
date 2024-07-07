@@ -21,7 +21,7 @@ method.
 ## Installation
 
 You can install the development version of drglm from
-[GitHub](https://github.com/NayemMH/drglm.git) with:
+[GitHub](https://github.com/NayemMH/drglm) with:
 
 ``` r
 # install.packages("devtools")

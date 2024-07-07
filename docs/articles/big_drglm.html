@@ -99,24 +99,31 @@ fitting.</p>
 <span>Var_6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">60</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Save the dataset to the temporary file</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">dataset</span>, file<span class="op">=</span><span class="st">"test_data.csv"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Save the dataset to a temporary file</span></span>
+<span><span class="va">temp_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">dataset</span>, file <span class="op">=</span> <span class="va">temp_file</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Path to the temporary file</span></span>
+<span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
+<span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpmk3YmO\\fileb445b3452cf.csv"</span></span></code></pre>
 <p>We’ve saved the data set to disk, assuming the data set is too large
 to fit into memory. We’ll explore how to handle such data sets. The
 ‘drglm’ package offers a function called ‘make.data’, which is a slight
 modification of the ‘biglm’ and ‘speedglm’ packages. It’s specifically
 designed for large CSV files that can’t be loaded into memory.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Path to your data set</span></span>
-<span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="st">"C:/Users/mhnay/OneDrive/Documents/test_data.csv"</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Initialize the data reading function with the data set path and chunk size</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Path to the temporary file</span></span>
+<span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
+<span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpmk3YmO\\fileb445b3452cf.csv"</span></span></code></pre>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Initialize the data reading function with the data set path and chunk size</span></span>
 <span><span class="va">da</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/make.data.html">make.data</a></span><span class="op">(</span><span class="va">dataset_path</span>, chunksize <span class="op">=</span> <span class="fl">100000</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="fitting-mlr-models">Fitting MLR Models<a class="anchor" aria-label="anchor" href="#fitting-mlr-models"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fitting MLR Model</span></span>
 <span><span class="va">nmodel</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/big.drglm.html">big.drglm</a></span><span class="op">(</span><span class="va">da</span>, formula <span class="op">=</span> <span class="va">Var_1</span> <span class="op">~</span> <span class="va">Var_2</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_3</span><span class="op">)</span><span class="op">+</span></span>
@@ -169,12 +176,12 @@ designed for large CSV files that can’t be loaded into memory.</p>
 <span><span class="co">## factor(Var_5)15  [ -0.06 , 0.17 ]</span></span>
 <span><span class="co">## Var_6                   [ 0 , 0 ]</span></span></code></pre>
 <p>In this similar manner , we can fit other family models using the
-above dataset.</p>
+above data set.</p>
 </div>
 <div class="section level2">
 <h2 id="fitting-logistic-regression-model">Fitting logistic Regression Model<a class="anchor" aria-label="anchor" href="#fitting-logistic-regression-model"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fitting Logistic Model</span></span>
 <span><span class="va">bmodel</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/big.drglm.html">big.drglm</a></span><span class="op">(</span><span class="va">da</span>,formula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_3</span><span class="op">)</span> <span class="op">~</span> <span class="va">Var_1</span><span class="op">+</span> <span class="va">Var_2</span><span class="op">+</span></span>
 <span>                             <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_4</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_5</span><span class="op">)</span><span class="op">+</span> <span class="va">Var_6</span>, </span>
@@ -229,7 +236,7 @@ above dataset.</p>
 <div class="section level2">
 <h2 id="fitting-poisson-regression-model">Fitting Poisson Regression Model<a class="anchor" aria-label="anchor" href="#fitting-poisson-regression-model"></a>
 </h2>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fitting Poisson Regression Model</span></span>
 <span><span class="va">pmodel</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/big.drglm.html">big.drglm</a></span><span class="op">(</span><span class="va">da</span>,</span>
 <span>                           formula <span class="op">=</span> <span class="va">Var_5</span> <span class="op">~</span> <span class="va">Var_1</span><span class="op">+</span> <span class="va">Var_2</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_3</span><span class="op">)</span><span class="op">+</span> </span>
@@ -263,7 +270,7 @@ sets in other formats.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by MH Nayem.</p>
+  <p>Developed by MHNayem.</p>
 </div>
 
 <div class="pkgdown-footer-right">

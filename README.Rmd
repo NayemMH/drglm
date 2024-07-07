@@ -25,7 +25,7 @@ The package 'drglm' can be used to fit Linear and Generalized Linear Models to l
 
 ## Installation
 
-You can install the development version of drglm from [GitHub](https://github.com/NayemMH/drglm.git) with:
+You can install the development version of drglm from [GitHub](https://github.com/NayemMH/drglm) with:
 
 ``` r
 # install.packages("devtools")

@@ -9,6 +9,87 @@
     ]
   },
   "Packages": {
+    "DBI": {
+      "Package": "DBI",
+      "Version": "1.2.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "065ae649b05f1ff66bb0c793107508f5"
+    },
+    "MASS": {
+      "Package": "MASS",
+      "Version": "7.3-60",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "a56a6365b3fa73293ea8d084be0d9bb0"
+    },
+    "Matrix": {
+      "Package": "Matrix",
+      "Version": "1.6-1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "grid",
+        "lattice",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "1a00d4828f33a9d690806e98bd17150c"
+    },
+    "biglm": {
+      "Package": "biglm",
+      "Version": "0.9-3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "DBI",
+        "methods"
+      ],
+      "Hash": "730f17c10844a54235031c78fdc20f81"
+    },
+    "lattice": {
+      "Package": "lattice",
+      "Version": "0.21-9",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "grid",
+        "stats",
+        "utils"
+      ],
+      "Hash": "5558c61e0136e247252f5f952cdaad6a"
+    },
+    "nnet": {
+      "Package": "nnet",
+      "Version": "7.3-19",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats",
+        "utils"
+      ],
+      "Hash": "2c797b46eea7fb58ede195bc0b1f1138"
+    },
     "renv": {
       "Package": "renv",
       "Version": "1.0.3",
@@ -18,6 +99,20 @@
         "utils"
       ],
       "Hash": "41b847654f567341725473431dd0d5ab"
+    },
+    "speedglm": {
+      "Package": "speedglm",
+      "Version": "0.3-5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "MASS",
+        "Matrix",
+        "biglm",
+        "methods",
+        "stats"
+      ],
+      "Hash": "6cffbce4f0fdc4b20a189939bab4ec89"
     }
   }
 }

@@ -8,6 +8,10 @@ vignette: >
 ---
 To fit Generalized Linear Models (GLMs) on large data sets that exceed memory limits, you can use the 'big.drglm' function. The 'biglm' package has been used for such applications, but it doesn't support factors. The 'speedglm' package does support factors, but its application on large CSV files for fitting GLMs hasn't been demonstrated. We'll show how to fit large datasets in chunks for model fitting.
 
+```{r setup, include=FALSE}
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
 Now , lets create a toy data set 
 
 ```{r}
@@ -24,14 +28,20 @@ Var_5 = as.factor(sample(0:15, n, replace = TRUE)),
 Var_6 = round(rnorm(n, mean = 60, sd = 5))
 )
 
-# Save the dataset to the temporary file
-write.csv(dataset, file="test_data.csv")
+# Save the dataset to a temporary file
+temp_file <- tempfile(fileext = ".csv")
+write.csv(dataset, file = temp_file, row.names = FALSE)
+
+# Path to the temporary file
+dataset_path <- temp_file
+dataset_path  # Display the path to the temporary file
 
 ```
 We've saved the data set to disk, assuming the data set is too large to fit into memory. We'll explore how to handle such data sets. The 'drglm' package offers a function called 'make.data', which is a slight modification of the 'biglm' and 'speedglm' packages. It's specifically designed for large CSV files that can't be loaded into memory.
 ```{r}
-# Path to your data set
-dataset_path <- "C:/Users/mhnay/OneDrive/Documents/test_data.csv"
+# Path to the temporary file
+dataset_path <- temp_file
+dataset_path  # Display the path to the temporary file
 
 
 # Initialize the data reading function with the data set path and chunk size
@@ -49,7 +59,7 @@ nmodel <-
 # View the results table
 print(nmodel)
 ```
-In this similar manner , we can fit other family models using the above dataset. 
+In this similar manner , we can fit other family models using the above data set. 
 
 # Fitting logistic Regression Model
 ```{r}

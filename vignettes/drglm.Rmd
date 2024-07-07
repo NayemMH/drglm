@@ -9,6 +9,10 @@ vignette: >
 Package 'drglm' provide users to fit GLMs to big data sets which can be attached into memory. This package uses popular "Divide and Recombine" method to fit GLMs to large data sets. 
 Lets generate a data set which is not that big but serves our purpose. 
 
+```{r setup, include=FALSE}
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
 # Generating a Data Set
 
 ```{r}

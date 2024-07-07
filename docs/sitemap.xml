@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nayemmh.github.io/drglm/404.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/articles/big_drglm.html</loc>
+    <loc>/articles/big_drglm.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/articles/drglm.html</loc>
+    <loc>/articles/drglm.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/articles/drglm_multinom.html</loc>
+    <loc>/articles/drglm_multinom.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/articles/index.html</loc>
+    <loc>/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/authors.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/index.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/LICENSE.html</loc>
+    <loc>/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/news/index.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/reference/big.drglm.html</loc>
+    <loc>/reference/big.drglm.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/reference/drglm.html</loc>
+    <loc>/reference/drglm.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/reference/drglm.multinom.html</loc>
+    <loc>/reference/drglm.multinom.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/reference/index.html</loc>
+    <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://nayemmh.github.io/drglm/reference/make.data.html</loc>
+    <loc>/reference/make.data.html</loc>
   </url>
 </urlset>
