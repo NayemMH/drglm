@@ -29,7 +29,7 @@
 #' @examples
 #' set.seed(123)
 #' #Number of rows to be generated
-#' n <- 1000000
+#' n <- 10000
 #' #creating dataset
 #' dataset <- data.frame( pred_1 = round(rnorm(n, mean = 50, sd = 10)),
 #' pred_2 = round(rnorm(n, mean = 7.5, sd = 2.1)),

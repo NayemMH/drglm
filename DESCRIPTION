@@ -1,7 +1,7 @@
 Package: drglm
 Type: Package
 Title: Fitting Linear and Generalized Linear Models in "Divide and Recombine" Approach
-Version: 1.0.1
+Version: 1.0
 Authors@R: 
     c(person(given = "MHNayem", family = "", email = "mhnayem.cu.stat@outlook.com", role = c("aut", "cre")))
 Maintainer: MHNayem <mhnayem.cu.stat@outlook.com>

@@ -25,7 +25,7 @@ Function \code{big.drglm} aimed to fit GLMs to datasets larger in size that can 
 # Create a toy dataset
 set.seed(123)
 # Number of rows to be generated
-n <- 1000000
+n <- 10000
 
 # Creating dataset
 dataset <- data.frame(
@@ -46,7 +46,7 @@ dataset_path <- temp_file
 dataset_path  # Display the path to the temporary file
 
 # Initialize the data reading function with the data set path and chunk size
-da <- drglm::make.data(dataset_path, chunksize = 100000)
+da <- drglm::make.data(dataset_path, chunksize = 1000)
 # Fitting MLR Models
 nmodel <- drglm::big.drglm(da,
 formula = Var_1 ~ Var_2+ factor(Var_3)+factor(Var_4)+ factor(Var_5)+ Var_6,
