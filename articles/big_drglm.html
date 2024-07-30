@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">drglm</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +95,7 @@ fitting.</p>
 <span><span class="co"># Path to the temporary file</span></span>
 <span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
 <span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/tmp/RtmpXSA05t/file190213cbf9a8.csv"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/tmp/Rtmp19Aq1G/file18ac5dfd07c5.csv"</span></span></code></pre>
 <p>We’ve saved the data set to disk, assuming the data set is too large
 to fit into memory. We’ll explore how to handle such data sets. The
 ‘drglm’ package offers a function called ‘make.data’, which is a slight
@@ -105,7 +105,7 @@ designed for large CSV files that can’t be loaded into memory.</p>
 <code class="sourceCode R"><span><span class="co"># Path to the temporary file</span></span>
 <span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
 <span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "/tmp/RtmpXSA05t/file190213cbf9a8.csv"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "/tmp/Rtmp19Aq1G/file18ac5dfd07c5.csv"</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Initialize the data reading function with the data set path and chunk size</span></span>
 <span><span class="va">da</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/make.data.html">make.data</a></span><span class="op">(</span><span class="va">dataset_path</span>, chunksize <span class="op">=</span> <span class="fl">100000</span><span class="op">)</span></span></code></pre></div>
