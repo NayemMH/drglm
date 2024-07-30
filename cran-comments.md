@@ -1,11 +1,4 @@
-## Resubmission
+# Updates on drglm 1.1
 
-This is a resubmission.  In this version i have:
-
-* updated the description of package without starting with title, "This package",
-  package name, or similar.
-
-* A proper description about package applicability   usage is given along with 
-  the functionality. 
-
-* References describing the methods are also updated maintaining proper format.
+* Updated format of output tables.
+* 95% Confidence Interval is added for each coefficients of estimates. 
