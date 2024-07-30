@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Fitting Linear and Generalized Linear Models in "Divide and Recombine" Approach • drglm</title>
+<title>Fitting Linear and Generalized Linear Models in "Divide and Recombine" Approach to Large Data Sets • drglm</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Fitting Linear and Generalized Linear Models in " divide and recombine approach>
-<meta name="description" content='Fitting Linear and Generalized Linear Models to Large Data sets in "Divide and Recombine" Approach.'>
-<meta property="og:description" content='Fitting Linear and Generalized Linear Models to Large Data sets in "Divide and Recombine" Approach.'>
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Fitting Linear and Generalized Linear Models in " divide and recombine approach to large data sets>
+<meta name="description" content="To overcome the memory limitations for fitting linear (LM) and Generalized Linear Models (GLMs) to large data sets, this package implements the Divide and Recombine (D&amp;R) strategy. It basically divides the entire large data set into suitable subsets manageable in size and then fits model to each subset. Finally, results from each subset are aggregated to obtain the final estimate. This package also supports fitting GLMs to data sets that cannot fit into memory and provides methods for fitting GLMs under linear regression, binomial regression, Poisson regression, and multinomial logistic regression settings. Respective models are fitted using different D&amp;R strategies as described by: Xi, Lin, and Chen (2009) &lt;doi:10.1109/TKDE.2008.186&gt;, Xi, Lin and Chen (2006) &lt;doi:10.1109/TKDE.2006.196&gt;, Zuo and Li (2018) &lt;doi:10.4236/ojs.2018.81003&gt;, Karim, M.R., Islam, M.A. (2019) &lt;doi:10.1007/978-981-13-9776-9&gt;.">
+<meta property="og:description" content="To overcome the memory limitations for fitting linear (LM) and Generalized Linear Models (GLMs) to large data sets, this package implements the Divide and Recombine (D&amp;R) strategy. It basically divides the entire large data set into suitable subsets manageable in size and then fits model to each subset. Finally, results from each subset are aggregated to obtain the final estimate. This package also supports fitting GLMs to data sets that cannot fit into memory and provides methods for fitting GLMs under linear regression, binomial regression, Poisson regression, and multinomial logistic regression settings. Respective models are fitted using different D&amp;R strategies as described by: Xi, Lin, and Chen (2009) &lt;doi:10.1109/TKDE.2008.186&gt;, Xi, Lin and Chen (2006) &lt;doi:10.1109/TKDE.2006.196&gt;, Zuo and Li (2018) &lt;doi:10.4236/ojs.2018.81003&gt;, Karim, M.R., Islam, M.A. (2019) &lt;doi:10.1007/978-981-13-9776-9&gt;.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -73,7 +73,14 @@
 <p>For practical examples and coding, users are refereed to check the vignettes of the ‘drglm’ paper for better understandings.</p>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=drglm" class="external-link">View on CRAN</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
@@ -92,7 +99,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>MHNayem <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Md. Mahadi Hassan Nayem <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
@@ -110,7 +117,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by MHNayem.</p>
+  <p>Developed by Md. Mahadi Hassan Nayem.</p>
 </div>
 
 <div class="pkgdown-footer-right">

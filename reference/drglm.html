@@ -112,7 +112,7 @@
 <span class="r-in"><span>data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"gaussian"</span>, fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">#Output</span></span></span>
 <span class="r-in"><span><span class="va">nmodel</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate standard.error    Z_value   Pr...z..         normal.CI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate standard error    t value   Pr(&gt;|t|)            95% CI</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) 51.72130615     1.32114969 39.1487102 0.00000000 [ 49.13 , 54.31 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2       0.02094802     0.04748735  0.4411285 0.65911997  [ -0.07 , 0.11 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_31     -0.13949603     0.20171843 -0.6915384 0.48922728  [ -0.53 , 0.26 ]</span>
@@ -139,7 +139,7 @@
 <span class="r-in"><span>data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"binomial"</span>, fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">#Output</span></span></span>
 <span class="r-in"><span><span class="va">bmodel</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  Estimate Odds.Ratio standard.error     t.value   Pr...z..</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  Estimate Odds Ratio standard error     z value   Pr(&gt;|z|)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  0.0952195429  1.0999003    0.286765015  0.33204728 0.73985356</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1      -0.0013836918  0.9986173    0.002045315 -0.67651761 0.49871207</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      -0.0004142688  0.9995858    0.009605457 -0.04312848 0.96559912</span>
@@ -161,7 +161,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_514    -0.0722004220  0.9303444    0.115422244 -0.62553300 0.53162130</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_515     0.1086928534  1.1148199    0.115575343  0.94045019 0.34698669</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_6      -0.0008249102  0.9991754    0.004057493 -0.20330540 0.83889633</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    normal.CI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       95% CI</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) [ -0.47 , 0.66 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1         [ -0.01 , 0 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      [ -0.02 , 0.02 ]</span>
@@ -188,7 +188,7 @@
 <span class="r-in"><span>data<span class="op">=</span><span class="va">dataset</span>, family<span class="op">=</span><span class="st">"binomial"</span>, fitfunction<span class="op">=</span><span class="st">"speedglm"</span>, k<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">#Output</span></span></span>
 <span class="r-in"><span><span class="va">pmodel</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 Estimate Odds.Ratio standard.error     t.value     Pr...z..</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 Estimate Odds Ratio standard error     z value     Pr(&gt;|z|)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  2.405511769 11.0841013    0.559554526  4.29897652 1.715886e-05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1      -0.007027986  0.9929967    0.004122233 -1.70489760 8.821352e-02</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2       0.028680323  1.0290956    0.019505478  1.47037271 1.414608e-01</span>
@@ -196,7 +196,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_41      0.078623643  1.0817971    0.102399679  0.76781142 4.425992e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_42      0.010046680  1.0100973    0.100601142  0.09986646 9.204503e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_6       0.005829844  1.0058469    0.008198830  0.71105795 4.770483e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    normal.CI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       95% CI</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   [ 1.31 , 3.5 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1         [ -0.02 , 0 ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      [ -0.01 , 0.07 ]</span>
@@ -279,7 +279,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> converged</span>
 <span class="r-in"><span><span class="co">#Output</span></span></span>
 <span class="r-in"><span><span class="va">mmodel</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate.1   Estimate.2 Odds.Ratio.1 Odds.Ratio.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate.1   Estimate.2 Odds Ratio.1 Odds Ratio.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) -0.2853539188 -0.533750309    0.7517481    0.5864017</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1       0.0038416692  0.002793053    1.0038491    1.0027970</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2       0.0082891106 -0.009496117    1.0083236    0.9905488</span>
@@ -300,7 +300,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_514    -0.0114576021  0.056310921    0.9886078    1.0579266</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_515    -0.0323858251 -0.020269661    0.9681330    0.9799344</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_6      -0.0004666329  0.007235091    0.9995335    1.0072613</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             standard.error.1 standard.error.2   Z_value.1   Z_value.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             standard error.1 standard error.2   z value.1   z value.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)      0.352355572      0.351293926 -0.80984648 -1.51938383</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_1           0.002519101      0.002511803  1.52501623  1.11197121</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_2           0.011828815      0.011781775  0.70075579 -0.80600053</span>
@@ -321,48 +321,48 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_514         0.144333825      0.140790079 -0.07938265  0.39996370</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_515         0.143521586      0.140359894 -0.22565125 -0.14441206</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> pred_6           0.004998638      0.004979892 -0.09335200  1.45286115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Pr...z...1 Pr...z...2   Lower.CI.1    Lower.CI.2  Upper.CI.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) 0.41802842 0.12866591 -0.975958149 -1.2222737520 0.405250311</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_1      0.12725505 0.26615053 -0.001095677 -0.0021299910 0.008779015</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      0.48345543 0.42024255 -0.014894941 -0.0325879707 0.031473162</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_31     0.66341044 0.04892794 -0.076572423  0.0004631993 0.120284427</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_51     0.46670217 0.44219699 -0.176253300 -0.1673565430 0.384492883</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_52     0.89533139 0.80346994 -0.258334577 -0.2367065310 0.295511070</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_53     0.09015541 0.56772567 -0.037542360 -0.1966796557 0.516984339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_54     0.50757019 0.82428389 -0.183679281 -0.3088078254 0.371310627</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_55     0.34707683 0.81345130 -0.144092521 -0.2419082168 0.409833218</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_56     0.06475233 0.54643959 -0.015879141 -0.1911821164 0.534963417</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_57     0.85655373 0.96480684 -0.305984588 -0.2675014606 0.254309947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_58     0.38274176 0.64931761 -0.156295386 -0.2137190764 0.407279227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_59     0.47018143 0.86170976 -0.174929886 -0.2495973465 0.379055875</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_510    0.46801738 0.98946692 -0.175406544 -0.2810973573 0.381675135</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_511    0.46430802 0.47919656 -0.174001483 -0.1739886449 0.381345755</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_512    0.24849570 0.94532840 -0.113827237 -0.2890106853 0.439796268</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_513    0.69095413 0.81097704 -0.220109750 -0.2391290552 0.332125581</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_514    0.93672827 0.68918326 -0.294346701 -0.2196325644 0.271431497</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_515    0.82147268 0.88517510 -0.313682965 -0.2953699988 0.248911315</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_6      0.92562392 0.14626231 -0.010263784 -0.0025253173 0.009330518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Upper.CI.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) 0.154773134</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_1      0.007716097</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      0.013595738</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_31     0.196648820</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_51     0.383242804</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_52     0.305558555</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_53     0.358550379</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_54     0.245959836</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_55     0.308132032</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_56     0.361137259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_57     0.279822734</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_58     0.342840554</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_59     0.298292855</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_510    0.277335943</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_511    0.370597794</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_512    0.269470771</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_513    0.305599936</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_514    0.332254406</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_515    0.254830677</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> pred_6      0.016995500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Pr(&gt;|z|).1 Pr(&gt;|z|).2 95% lower CI.1 95% lower CI.2 95% upper CI.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) 0.41802842 0.12866591   -0.975958149  -1.2222737520    0.405250311</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_1      0.12725505 0.26615053   -0.001095677  -0.0021299910    0.008779015</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_2      0.48345543 0.42024255   -0.014894941  -0.0325879707    0.031473162</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_31     0.66341044 0.04892794   -0.076572423   0.0004631993    0.120284427</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_51     0.46670217 0.44219699   -0.176253300  -0.1673565430    0.384492883</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_52     0.89533139 0.80346994   -0.258334577  -0.2367065310    0.295511070</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_53     0.09015541 0.56772567   -0.037542360  -0.1966796557    0.516984339</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_54     0.50757019 0.82428389   -0.183679281  -0.3088078254    0.371310627</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_55     0.34707683 0.81345130   -0.144092521  -0.2419082168    0.409833218</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_56     0.06475233 0.54643959   -0.015879141  -0.1911821164    0.534963417</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_57     0.85655373 0.96480684   -0.305984588  -0.2675014606    0.254309947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_58     0.38274176 0.64931761   -0.156295386  -0.2137190764    0.407279227</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_59     0.47018143 0.86170976   -0.174929886  -0.2495973465    0.379055875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_510    0.46801738 0.98946692   -0.175406544  -0.2810973573    0.381675135</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_511    0.46430802 0.47919656   -0.174001483  -0.1739886449    0.381345755</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_512    0.24849570 0.94532840   -0.113827237  -0.2890106853    0.439796268</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_513    0.69095413 0.81097704   -0.220109750  -0.2391290552    0.332125581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_514    0.93672827 0.68918326   -0.294346701  -0.2196325644    0.271431497</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_515    0.82147268 0.88517510   -0.313682965  -0.2953699988    0.248911315</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_6      0.92562392 0.14626231   -0.010263784  -0.0025253173    0.009330518</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             95% upper CI.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)    0.154773134</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_1         0.007716097</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_2         0.013595738</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_31        0.196648820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_51        0.383242804</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_52        0.305558555</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_53        0.358550379</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_54        0.245959836</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_55        0.308132032</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_56        0.361137259</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_57        0.279822734</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_58        0.342840554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_59        0.298292855</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_510       0.277335943</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_511       0.370597794</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_512       0.269470771</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_513       0.305599936</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_514       0.332254406</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_515       0.254830677</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pred_6         0.016995500</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -370,7 +370,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by MHNayem.</p>
+  <p>Developed by Md. Mahadi Hassan Nayem.</p>
 </div>
 
 <div class="pkgdown-footer-right">
