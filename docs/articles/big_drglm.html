@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">drglm</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +106,7 @@ fitting.</p>
 <span><span class="co"># Path to the temporary file</span></span>
 <span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
 <span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpmk3YmO\\fileb445b3452cf.csv"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpo33W77\\file554c33b56e73.csv"</span></span></code></pre>
 <p>We’ve saved the data set to disk, assuming the data set is too large
 to fit into memory. We’ll explore how to handle such data sets. The
 ‘drglm’ package offers a function called ‘make.data’, which is a slight
@@ -116,7 +116,7 @@ designed for large CSV files that can’t be loaded into memory.</p>
 <code class="sourceCode R"><span><span class="co"># Path to the temporary file</span></span>
 <span><span class="va">dataset_path</span> <span class="op">&lt;-</span> <span class="va">temp_file</span></span>
 <span><span class="va">dataset_path</span>  <span class="co"># Display the path to the temporary file</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpmk3YmO\\fileb445b3452cf.csv"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "C:\\Users\\mhnay\\AppData\\Local\\Temp\\Rtmpo33W77\\file554c33b56e73.csv"</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Initialize the data reading function with the data set path and chunk size</span></span>
 <span><span class="va">da</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/make.data.html">make.data</a></span><span class="op">(</span><span class="va">dataset_path</span>, chunksize <span class="op">=</span> <span class="fl">100000</span><span class="op">)</span></span></code></pre></div>
@@ -131,7 +131,7 @@ designed for large CSV files that can’t be loaded into memory.</p>
 <span></span>
 <span><span class="co"># View the results table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nmodel</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                      Estimate standard.error      t_value  Pr...z..</span></span>
+<pre><code><span><span class="co">##                      Estimate standard error      t value  Pr(&gt;|t|)</span></span>
 <span><span class="co">## (Intercept)     49.9938921629    0.132222414 378.10451704 0.0000000</span></span>
 <span><span class="co">## Var_2           -0.0045648136    0.004721587  -0.96679652 0.3336458</span></span>
 <span><span class="co">## factor(Var_3)1   0.0140777358    0.020007935   0.70360764 0.4816772</span></span>
@@ -153,7 +153,7 @@ designed for large CSV files that can’t be loaded into memory.</p>
 <span><span class="co">## factor(Var_5)14 -0.0151239426    0.056584592  -0.26728023 0.7892534</span></span>
 <span><span class="co">## factor(Var_5)15  0.0548865463    0.056635643   0.96911668 0.3324870</span></span>
 <span><span class="co">## Var_6            0.0004866552    0.001996329   0.24377510 0.8074050</span></span>
-<span><span class="co">##                         normal.CI</span></span>
+<span><span class="co">##                            95% CI</span></span>
 <span><span class="co">## (Intercept)     [ 49.73 , 50.25 ]</span></span>
 <span><span class="co">## Var_2               [ -0.01 , 0 ]</span></span>
 <span><span class="co">## factor(Var_3)1   [ -0.03 , 0.05 ]</span></span>
@@ -183,12 +183,12 @@ above data set.</p>
 </h2>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fitting Logistic Model</span></span>
-<span><span class="va">bmodel</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/big.drglm.html">big.drglm</a></span><span class="op">(</span><span class="va">da</span>,formula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_3</span><span class="op">)</span> <span class="op">~</span> <span class="va">Var_1</span><span class="op">+</span> <span class="va">Var_2</span><span class="op">+</span></span>
+<span><span class="va">bmodel</span> <span class="op">&lt;-</span> <span class="fu">drglm</span><span class="fu">::</span><span class="fu"><a href="../reference/big.drglm.html">big.drglm</a></span><span class="op">(</span><span class="va">da</span>,formula <span class="op">=</span> <span class="va">Var_3</span> <span class="op">~</span> <span class="va">Var_1</span><span class="op">+</span> <span class="va">Var_2</span><span class="op">+</span></span>
 <span>                             <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_4</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_5</span><span class="op">)</span><span class="op">+</span> <span class="va">Var_6</span>, </span>
 <span>                           <span class="fl">10</span>, family<span class="op">=</span><span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="co"># View the results table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">bmodel</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                      Estimate Odds.Ratio standard.error    t.value   Pr...z..</span></span>
+<pre><code><span><span class="co">##                      Estimate Odds Ratio standard error    z value   Pr(&gt;|z|)</span></span>
 <span><span class="co">## (Intercept)      0.0498850493  1.0511503   0.0281923787  1.7694516 0.07681854</span></span>
 <span><span class="co">## Var_1            0.0001406428  1.0001407   0.0001999858  0.7032641 0.48189121</span></span>
 <span><span class="co">## Var_2           -0.0010289335  0.9989716   0.0009441471 -1.0898021 0.27580035</span></span>
@@ -210,7 +210,7 @@ above data set.</p>
 <span><span class="co">## factor(Var_5)14 -0.0270868122  0.9732767   0.0113146115 -2.3939675 0.01666723</span></span>
 <span><span class="co">## factor(Var_5)15 -0.0148850714  0.9852252   0.0113248937 -1.3143674 0.18872258</span></span>
 <span><span class="co">## Var_6           -0.0006315246  0.9993687   0.0003991918 -1.5820079 0.11364778</span></span>
-<span><span class="co">##                        normal.CI</span></span>
+<span><span class="co">##                           95% CI</span></span>
 <span><span class="co">## (Intercept)     [ -0.01 , 0.11 ]</span></span>
 <span><span class="co">## Var_1                  [ 0 , 0 ]</span></span>
 <span><span class="co">## Var_2                  [ 0 , 0 ]</span></span>
@@ -243,7 +243,7 @@ above data set.</p>
 <span>                             <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Var_4</span><span class="op">)</span><span class="op">+</span> <span class="va">Var_6</span>, <span class="fl">10</span>, family<span class="op">=</span><span class="st">"poisson"</span><span class="op">)</span></span>
 <span><span class="co"># View the results table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">pmodel</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                     Estimate Odds.Ratio standard.error       Z_value   Pr...z..</span></span>
+<pre><code><span><span class="co">##                     Estimate Odds Ratio standard error       z value   Pr(&gt;|z|)</span></span>
 <span><span class="co">## (Intercept)     1.993906e+00  7.3441637              1  1.993906e+00 0.04616233</span></span>
 <span><span class="co">## Var_1           8.520103e-05  1.0000852              1  8.520103e-05 0.99993202</span></span>
 <span><span class="co">## Var_2           5.068223e-04  1.0005070              1  5.068223e-04 0.99959561</span></span>
@@ -251,7 +251,7 @@ above data set.</p>
 <span><span class="co">## factor(Var_4)1 -2.984466e-03  0.9970200              1 -2.984466e-03 0.99761874</span></span>
 <span><span class="co">## factor(Var_4)2 -2.436860e-03  0.9975661              1 -2.436860e-03 0.99805567</span></span>
 <span><span class="co">## Var_6           2.669898e-04  1.0002670              1  2.669898e-04 0.99978697</span></span>
-<span><span class="co">##                       normal.CI</span></span>
+<span><span class="co">##                          95% CI</span></span>
 <span><span class="co">## (Intercept)     [ 0.03 , 3.95 ]</span></span>
 <span><span class="co">## Var_1          [ -1.96 , 1.96 ]</span></span>
 <span><span class="co">## Var_2          [ -1.96 , 1.96 ]</span></span>
@@ -270,7 +270,7 @@ sets in other formats.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by MHNayem.</p>
+  <p>Developed by Md. Mahadi Hassan Nayem.</p>
 </div>
 
 <div class="pkgdown-footer-right">
